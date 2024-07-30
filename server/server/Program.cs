@@ -6,7 +6,7 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 
 builder.Services.AddDbContext<AppDbContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+    options.UseSqlServer(builder.Configuration.GetConnectionString("Server=localhost\\MSSQLSERVER02;Database=master;Trusted_Connection=True;")));
 
 builder.Services.AddScoped<Repozitory.Services.CategoryService>();
 
@@ -14,6 +14,19 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy
+    (
+       "CorsPolicy",
+    policy =>
+    {
+        policy.SetIsOriginAllowed(_ => true);
+        policy.AllowAnyHeader().WithMethods("OPTIONS", "HEAD", "CONNECT", "GET", "POST", "PUT", "DELETE", "PATCH")
+             .AllowCredentials();
+    }
+    );
+});
 
 var app = builder.Build();
 
@@ -29,5 +42,7 @@ app.UseHttpsRedirection();
 app.UseAuthorization();
 
 app.MapControllers();
+app.UseCors("CorsPolicy");
+
 
 app.Run();

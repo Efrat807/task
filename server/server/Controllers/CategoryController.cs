@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Repozitory.Models;
 using Repozitory.Services;
 
 namespace server.Controllers
@@ -11,6 +12,12 @@ namespace server.Controllers
         public CategoryController(CategoryService categoryService) 
         { 
             _categoryService = categoryService;
+        }
+        [HttpGet]
+        public async Task<ActionResult<IEnumerable<Category>>> GetCategories()
+        {
+            var categories = await _categoryService.GetAllAsync();
+            return Ok(categories);
         }
     }
 }

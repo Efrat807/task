@@ -1,0 +1,13 @@
+C:\Users\Public\אפרת\תכנות\task\server\Repozitory\bin\Debug\net8.0\Repozitory.deps.json
+C:\Users\Public\אפרת\תכנות\task\server\Repozitory\bin\Debug\net8.0\Repozitory.dll
+C:\Users\Public\אפרת\תכנות\task\server\Repozitory\bin\Debug\net8.0\Repozitory.pdb
+C:\Users\Public\אפרת\תכנות\task\server\Repozitory\obj\Debug\net8.0\Repozitory.csproj.AssemblyReference.cache
+C:\Users\Public\אפרת\תכנות\task\server\Repozitory\obj\Debug\net8.0\Repozitory.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Public\אפרת\תכנות\task\server\Repozitory\obj\Debug\net8.0\Repozitory.AssemblyInfoInputs.cache
+C:\Users\Public\אפרת\תכנות\task\server\Repozitory\obj\Debug\net8.0\Repozitory.AssemblyInfo.cs
+C:\Users\Public\אפרת\תכנות\task\server\Repozitory\obj\Debug\net8.0\Repozitory.csproj.CoreCompileInputs.cache
+C:\Users\Public\אפרת\תכנות\task\server\Repozitory\obj\Debug\net8.0\Repozitory.sourcelink.json
+C:\Users\Public\אפרת\תכנות\task\server\Repozitory\obj\Debug\net8.0\Repozitory.dll
+C:\Users\Public\אפרת\תכנות\task\server\Repozitory\obj\Debug\net8.0\refint\Repozitory.dll
+C:\Users\Public\אפרת\תכנות\task\server\Repozitory\obj\Debug\net8.0\Repozitory.pdb
+C:\Users\Public\אפרת\תכנות\task\server\Repozitory\obj\Debug\net8.0\ref\Repozitory.dll

@@ -2,7 +2,7 @@ import axios from 'axios';
 // import process from 'process';
 
 const apiClient = axios.create({
-	baseURL: 'https://localhost:7196/',
+	baseURL: 'https://localhost:7293',
 	// baseURL: `${process.env.REACT_APP_SERVER_URL}/`,
 	withCredentials: true,
 	headers: {
