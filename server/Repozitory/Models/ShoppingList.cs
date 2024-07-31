@@ -8,7 +8,7 @@ namespace Repozitory.Models
 {
     public class ShoppingList
     {
-        public int Id { get; set; }
+        public int ? Id { get; set; }
         public List<Product> Products { get; set; }
     }
 }
