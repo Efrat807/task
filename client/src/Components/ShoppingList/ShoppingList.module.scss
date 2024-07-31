@@ -13,4 +13,9 @@
     align-items: right;
     direction: rtl;
     justify-content: center;
+    height: 100vh;
+}
+.shoppingListCards {
+    display: flex;
+    justify-content: space-around;
 }
