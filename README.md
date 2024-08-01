@@ -40,9 +40,11 @@ The server will start on `https://localhost:5001` by default.
 - Owned entity approach for storing products within shopping lists
 
 ## Client (React TypeScript)
+- react (v18 ) vite
+
 
 ### Prerequisites
-- Node.js (v14 or later recommended)
+- Node.js (v20)
 - npm or yarn
 
 ### Setup
