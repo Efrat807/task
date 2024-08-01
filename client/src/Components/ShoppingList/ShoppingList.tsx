@@ -9,6 +9,7 @@ import { TotalItemsAtom } from '../../Atoms';
 import { useShoppingList } from '../../ApiService/Requests/UseShoppingList';
 import CategoryCard from '../CategoryCard/CategoryCard';
 import { ToastSuccess } from '../Toastify/Toasts';
+import useWindowSize from '../../Hooks/useWindowSize';
 
 export const ShoppingList = () => {
 	const [totalItems, setTotalItems] =useRecoilState(TotalItemsAtom);
@@ -35,6 +36,7 @@ export const ShoppingList = () => {
 	const {createShoppingList}=useShoppingList();
 	
 	const categories = useGetAllCategories().Categories;
+	const {width: windowWidth} = useWindowSize();
 	
 	const groupedProducts = useMemo(() => {
         return shoppingList.reduce((acc, product) => {
@@ -69,26 +71,26 @@ export const ShoppingList = () => {
 				onSubmit={onSubmit}
 				>
 				{(formik)=>(
-					<Form style={{display: 'flex', justifyContent: 'space-around'}}>
-					<Input required
-						name='name'
-						placeholder="שם מוצר" 
-						style={{marginLeft: '30px'}}
-						onChange={(event: ChangeEvent<HTMLInputElement>) =>
-									formik.setFieldValue('name', event.target.value)}/>
-					<FormControl variant='standard'style={{marginLeft: '20px', width: '130px'}}>
-						<div>קטגוריה</div>
-						<Select required name='categoryId' onChange={(event: SelectChangeEvent<string>) =>
-									formik.setFieldValue('categoryId', event.target.value)}>
-					{categories?.map((category, index) => (
-						<MenuItem key={index} value={category.id}>
-							{category.name}
-						</MenuItem>
-					))}
-				</Select>
-				</FormControl>
-				<Button type='submit' style={{border: '1px solid black'}}>הוסף מוצר</Button>
-				</Form>)}
+					<Form style={{display: 'flex', justifyContent: 'space-around', flexDirection: (windowWidth || 780)<769? 'column': 'row'}}>
+						<Input required
+							name='name'
+							placeholder="שם מוצר" 
+							style={{marginLeft: '30px', marginBottom: '15px', width: '140px'}}
+							onChange={(event: ChangeEvent<HTMLInputElement>) =>
+										formik.setFieldValue('name', event.target.value)}/>
+						<FormControl variant='standard'style={{marginLeft: '20px', width: '130px', marginBottom: '15px'}}>
+							{/* <div>קטגוריה</div> */}
+							<Select style={{placeContent: 'קטגוריה'}} required name='categoryId' onChange={(event: SelectChangeEvent<string>) =>
+										formik.setFieldValue('categoryId', event.target.value)}>
+									{categories?.map((category, index) => (
+								<MenuItem key={index} value={category.id}>
+									{category.name}
+								</MenuItem>
+						))}
+							</Select>
+						</FormControl>
+						<Button type='submit' style={{border: '1px solid black', marginBottom: '15px'}}>הוסף מוצר</Button>
+					</Form>)}
 				</Formik>
 			</div>
 			<hr />
