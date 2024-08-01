@@ -6,7 +6,7 @@ This project is a full-stack shopping list application with a React TypeScript f
 ## Server (C# .NET)
 
 ### Prerequisites
-- .NET 6.0 SDK or later
+- .NET 8.0 SDK
 - SQL Server
 
 ### Setup
