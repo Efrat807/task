@@ -79,11 +79,12 @@ The client will start on `http://localhost:3000` by default.
 
 ## API Endpoints
 
-- `GET /api/shoppinglists`: Get all shopping lists
+- `GET /api/categories`: Get all categories list
+- `POST /api/shoppinglists`: Create a new shopping list
 
 there are more but didn't use for this task:
+- `GET /api/shoppinglists`: Get all shopping lists
 - `GET /api/shoppinglists/{id}`: Get a specific shopping list
-- `POST /api/shoppinglists`: Create a new shopping list
 - `PUT /api/shoppinglists/{id}`: Update a shopping list
 - `DELETE /api/shoppinglists/{id}`: Delete a shopping list
 
