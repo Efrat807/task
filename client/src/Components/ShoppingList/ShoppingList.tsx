@@ -1,7 +1,7 @@
 import { Button, FormControl, Input, MenuItem, Select, SelectChangeEvent } from '@mui/material';
 import classes from './ShoppingList.module.scss';
 import { useGetAllCategories } from '../../ApiService/Requests/UseCategory';
-import { Form, Formik, FormikHelpers, FormikProps } from 'formik';
+import { Form, Formik } from 'formik';
 import { IProduct } from '../../ApiService/Interfaces/IProduct';
 import { ChangeEvent, useMemo, useState } from 'react';
 import { useRecoilState } from 'recoil';
@@ -14,8 +14,11 @@ import useWindowSize from '../../Hooks/useWindowSize';
 export const ShoppingList = () => {
 	const [totalItems, setTotalItems] =useRecoilState(TotalItemsAtom);
 	const [shoppingList, setShoppingList] = useState<IProduct[]>([]);
+	const {createShoppingList}=useShoppingList();
+	const categories = useGetAllCategories().Categories;
+	const {width: windowWidth} = useWindowSize();
 	
-	const onSubmit = (values: IProduct, formik: FormikHelpers<IProduct>)=>{
+	const onSubmit = (values: IProduct)=>{
 		setTotalItems(prev=>prev+1);
 
 		setShoppingList(prev => {
@@ -24,19 +27,12 @@ export const ShoppingList = () => {
 				? [...prev.slice(0, index), { ...prev[index], amount: prev[index].amount + 1 }, ...prev.slice(index + 1)]
 				: [...prev, values];
 		});
-		// formik.setValues(initialShoppingList);
-		// formik.setFieldValue(initialShoppingList);
-		// formik.resetForm();
 	}
 
 	const initialShoppingList: IProduct = {
 		name: '', amount: 1, categoryId: 1
 
 	}
-	const {createShoppingList}=useShoppingList();
-	
-	const categories = useGetAllCategories().Categories;
-	const {width: windowWidth} = useWindowSize();
 	
 	const groupedProducts = useMemo(() => {
         return shoppingList.reduce((acc, product) => {
@@ -50,16 +46,10 @@ export const ShoppingList = () => {
 		createShoppingList({products: shoppingList}, { onSuccess: ()=>{
 			setTotalItems(0); 
 			setShoppingList([]);
-			ToastSuccess('ההזמנה בוצעה בהצלחה')
+			ToastSuccess('ההזמנה בוצעה בהצלחה');
 		}})
 	}
-	
-	// const addCategoriesCards = ()=> {
-	// 	categories?.forEach((category)=>{
-	// 		const filterList = shoppingList.find(sList=> category.id==sList.categoryId)
-	// 		<CategoryCard categoryName= filterList./>
-	// 	})
-	// }
+
 
 	return (
 		<div className={classes.shoppingList}>
@@ -75,11 +65,11 @@ export const ShoppingList = () => {
 						<Input required
 							name='name'
 							placeholder="שם מוצר" 
-							style={{marginLeft: '30px', marginBottom: '15px', width: '140px'}}
+							style={{marginLeft: '30px', marginBottom: '15px'}}
 							onChange={(event: ChangeEvent<HTMLInputElement>) =>
 										formik.setFieldValue('name', event.target.value)}/>
 						<FormControl variant='standard'style={{marginLeft: '20px', width: '130px', marginBottom: '15px'}}>
-							{/* <div>קטגוריה</div> */}
+							<div>קטגוריה</div>
 							<Select style={{placeContent: 'קטגוריה'}} required name='categoryId' onChange={(event: SelectChangeEvent<string>) =>
 										formik.setFieldValue('categoryId', event.target.value)}>
 									{categories?.map((category, index) => (
