@@ -3,8 +3,6 @@ using Microsoft.EntityFrameworkCore;
 using System.Globalization;
 using Repozitory.Services;
 
-//CultureInfo.DefaultThreadCurrentCulture = CultureInfo.InvariantCulture;
-//CultureInfo.DefaultThreadCurrentUICulture = CultureInfo.InvariantCulture;
 
 CultureInfo.DefaultThreadCurrentCulture = new CultureInfo("he-IL");
 CultureInfo.DefaultThreadCurrentUICulture = new CultureInfo("he-IL");
