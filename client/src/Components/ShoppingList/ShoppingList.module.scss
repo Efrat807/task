@@ -1,10 +1,22 @@
+.title {
+    text-align: center;
+    background-color: rgb(180, 177, 177);
+}
+.totalItems {
+    direction: ltr;
+}
 .addProduct {
+    padding-top: 3%;
     display: flex;
-    // flex-direction: row-reverse;
     align-items: center;
+    padding-inline: 3%;
     justify-content: space-between;
     text-align: right;
     direction: rtl;
+    @media (max-width: 768) {
+        flex-direction: column;
+    }
+    
 
 }
 .shoppingList {
@@ -12,10 +24,31 @@
     flex-direction: column;
     align-items: right;
     direction: rtl;
-    justify-content: center;
-    height: 100vh;
+    height: auto;
+    padding: 5%;
+    margin: 0 auto;
+    max-width: 900px;
+    position: relative;
+
 }
 .shoppingListCards {
     display: flex;
-    justify-content: space-around;
+    // justify-content: space-between;
+    width: 800px;
+    overflow-y: auto;
+    @media  (max-width: 800px) {
+        overflow-x: scroll
+    }
+    @media (max-width: 794) {
+        width: 85% !important;
+        overflow: auto;
+    }
+    // min-width: 550px;
+}
+
+.footer {
+    background-color: rgb(180, 177, 177);
+    position: absolute;
+    left: 10px;
+    bottom: 10px;
 }

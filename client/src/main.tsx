@@ -6,6 +6,7 @@ import { BrowserRouter } from 'react-router-dom'
 import { queryClient } from './Utils/ReactQueryConfig.tsx'
 import { QueryClientProvider } from 'react-query'
 import { RecoilRoot } from 'recoil'
+import ToastsContainer from './Components/Toastify/ToastsContainer.tsx'
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
@@ -13,6 +14,7 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
     <RecoilRoot>
     <QueryClientProvider client={queryClient}>
       <App />
+      <ToastsContainer />
     </QueryClientProvider>
     </RecoilRoot>
     </BrowserRouter>
