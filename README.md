@@ -32,7 +32,7 @@ This project is a full-stack shopping list application with a React TypeScript f
    dotnet run
    ```
 
-The server will start on `https://localhost:5001` by default.
+The server will start on `https://localhost:7293/api`
 
 ### Key Features
 - RESTful API for managing shopping lists and products
@@ -45,7 +45,7 @@ The server will start on `https://localhost:5001` by default.
 
 ### Prerequisites
 - Node.js (v20)
-- npm or yarn
+- npm
 
 ### Setup
 1. Navigate to the client directory:
@@ -57,21 +57,14 @@ The server will start on `https://localhost:5001` by default.
    ```
    npm install
    ```
-   or
+  
+
+3. Run the development client:
    ```
-   yarn install
+   npm run dev
    ```
 
-3. Start the development server:
-   ```
-   npm start
-   ```
-   or
-   ```
-   yarn start
-   ```
-
-The client will start on `http://localhost:3000` by default.
+The client will start on `https://localhost:5173`
 
 ### Key Features
 - React hooks for state management
